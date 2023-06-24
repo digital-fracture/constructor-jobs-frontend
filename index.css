@@ -218,9 +218,11 @@ textarea {
     border: 1px solid #ccc; 
     margin-top: 1em !important ;
     margin-bottom: 1em !important;
+    overflow: auto;
   }
   
  
  h2 {
     margin-bottom:  20px; 
   }
+  
