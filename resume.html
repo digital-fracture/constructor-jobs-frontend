@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/resume.js"></script>
+    <link rel="stylesheet" href="/resume.css">
+</head>
+<body>
+    <body class="page">
+          <form class="form page__form" onsubmit="submitForm(event)" method="POST">
+             
+                  <div class="position">
+                    
+                      <div class="form__linput">
+                        <input class="form__input" type="text" name="position" id="position" pattern="\w{1,}" required />
+                        <label class="form__label" for="position">Должность</label>
+                      </div>
+                  
+                      <div class="form__linput">
+                        <input class="form__input" type="text" name="working" id="working" pattern="\w{1,}" required />
+                        <label class="form__label" for="working">Специализация</label>
+                      </div>
+                    
+                
+      
+              </div>
+              Должностные обязанности 
+                  <textarea ></textarea>
+              
+            
+            <p>Контакты</p>
+            <div>
+                 <input   style="margin-bottom: 15px;"
+                          class="form__input"
+                          type="phone"
+                          name="phone"
+                          id="phone"
+                          placeholder="+7(000)000-00-00" />
+                 <input  
+                          class="form__input"
+                          type="email"
+                          name="email"
+                          id="email"
+                          placeholder="some@some.some"
+                        />
+            </div>
+            <input type="submit" style="width: 90%;" value="Отправить"> 
+     
+</form>
+        
+        
+</body>
+</html>

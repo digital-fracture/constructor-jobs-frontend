@@ -1,0 +1,208 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+input {
+  font: inherit;
+}
+
+:root {
+  /* colors */
+  --cr_white: 96, 100%, 100%;
+  --cr_shuttle-gray: 215, 15%, 39%;
+  --cr_puerto-rico: 96, 100%, 50%;
+  --cr_big-stone: 0, 0%, 13%;
+
+  /* fonts */
+  --ft-fam-primary: "Poppins", sans-serif;
+  --ft-wt-500: 500;
+  --ft-se-400: 0.9rem;
+
+  /* size */
+  --size-200: 0.4em;
+  --size-300: 0.7em;
+  --size-400: 1.2em;
+
+  /* transition */
+  --tn-1: 180ms linear;
+
+  /* components */
+  --page_cr: hsl(var(--cr_white));
+  --page_bd: hsl(var(--cr_big-stone));
+  --page_font: var(--ft-fam-primary);
+
+  --form__input_border-cr: hsl(var(--cr_shuttle-gray));
+  --form__input_border-cr_active: hsl(var(--cr_puerto-rico));
+  --form__input_txt-cr: hsl(var(--cr_white));
+}
+
+.page {
+  color: var(--page_cr);
+  background: var(--page_bd);
+  display: grid;
+  align-items: center;
+  min-height: 50vh;
+  font-family: var(--page_font);
+}
+
+.page__form {
+  margin-inline: auto;
+  max-width: 50em;
+}
+
+.form {
+  color: var(--page_cr);
+  background: var(--page_bd);
+  display: grid;
+  gap: var(--size-400);
+  width: 100%;
+}
+
+.form__linput {
+  color: var(--form__input_border-cr);
+  margin-bottom: 0.5vh;
+  display: grid;
+  position: relative;
+}
+
+.form__input {
+  color: var(--form__input_txt-cr);
+  background: inherit;
+  padding: var(--size-300);
+  width: 90%;
+  height: 5vh;
+  border: 2px solid var(--form__input_border-cr);
+  border-radius: var(--size-200);
+  font-weight: var(--ft-wt-500);
+}
+
+.form__input:valid,
+.form__input:focus {
+  border: 1px solid var(--form__input_border-cr_active);
+}
+
+.form__input:valid + .form__label,
+.form__input:focus + .form__label {
+  font-size: var(--ft-se-400);
+}
+
+.form__input:valid + .form__label,
+.form__input:focus + .form__label {
+  color: var(--form__input_border-cr_active);
+  top: 0;
+}
+
+.form__input:valid + .form__label::before,
+.form__input:focus + .form__label::before {
+  height: 90%;
+  opacity: 1;
+}
+
+.form__label {
+  transition: top var(--tn-1), font-size var(--tn-1);
+  background: hsl(var(--cr_big-stone));
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-inline: var(--size-200);
+  user-select: none;
+  cursor: text;
+  font-weight: var(--ft-wt-500);
+  letter-spacing: 1px;
+}
+
+.form__label::before {
+  transition: height 90ms linear 90ms, opacity var(--tn-1);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0%;
+  width: 100%;
+  height: 0;
+  border-inline: 2px solid var(--form__input_border-cr_active);
+  opacity: 0;
+  content: "";
+}
+textarea {
+  width: 90%;
+  height: 15vh;
+  box-sizing: border-box;
+  background: #383838;
+  padding: 10px;
+  overflow: hidden;
+  margin: auto;
+  border-radius: 10px;
+  color: var(--cr_white);
+  font-size: 115%;
+}
+.position{
+  margin-left: 2.5em;
+  margin-top: 7vh;
+  width: 100%;
+}
+.contact {
+  color: var(--form__input_txt-cr);
+  background: inherit;
+  padding: var(--size-300);
+  width: 90%;
+  height: 5vh;
+  border: 2px solid var(--form__input_border-cr);
+  border-radius: var(--size-200);
+  font-weight: var(--ft-wt-500);
+}
+
+.contact:focus {
+  border: 2px solid var(--form__input_border-cr_active);
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 1000px #222222 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+.label2{
+  background-color: #383838;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 130%;
+  color: #66ff00;
+}
+input:valid{
+  border: 1px solid var(--form__input_border-cr_active)
+}
+textarea:hover{
+  border: 1px solid var(--form__input_border-cr_active)
+}
+.feedback__label{
+  color: #66ff00;
+  background-color: #383838;
+  width: 90%;
+  font-size: 130%;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+}
+.label{
+  margin: auto;
+  margin-top: 7vh;
+  font-size: 150%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+}
+.wrap{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}

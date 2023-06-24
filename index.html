@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/resume.css">
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+   
+</head>
+<body>
+        <div style="display: inline-flex; position: relative;">
+            <button class="js-open-modal pressed-button" data-modal="1" style="margin: 4em" id="sendfile" class="pressed-button sendfile">Разделить множество должностных обязанностей</button>
+            <button  id="res" class="pressed-button js-open-modal" style="margin: 4em" data-modal="3">Разделить должностную обязанность</button> 
+            <button  id="res" class="pressed-button js-open-modal" style="margin: 4em" data-modal="2">Создать новое резюме</button> 
+        </div>
+            <div class="modal" id="modal1" data-modal="1">
+                <svg class="modal__cross js-modal-close" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
+                    <div>
+                        <label id ="label" class="feedback__label label" for="file">
+                            Нажмите, чтобы выбрать файл    
+                        </label>
+                        <input class="feedfile" id="file" type="file">
+                    </div>
+                    
+                    <div style="margin-block: 2em;" class="sendfile">
+                        <button id="upload" style="margin-inline: 4em;" class="pressed-button">Отправить</button>
+                        <button type ="reset" style="margin-inline: 4em;" id="reset" class="pressed-button">Очистить</button>
+                    </div>
+                    <div>
+                </div>
+            </div>
+        
+        <div class="overlay js-overlay-modal"></div>
+        <div>
+            <div id="modal2" class="modal" data-modal="2">
+                <svg class="modal__cross js-modal-close" xmlns="http://www.w3.org/2000/svg"               
+                    viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
+                <div class="form page__form">
+                    <div class="position">
+                    
+                        <div class="form__linput" style="margin-bottom: 15px;">
+                          <input class="form__input" type="text" name="position" id="position" pattern="\w{1,}" required />
+                          <label class="form__label" for="position">Должность</label>
+                        </div>
+                    
+                        <div class="form__linput">
+                          <input class="form__input" type="text" name="working" id="working" pattern="\w{1,}" required />
+                          <label class="form__label" for="working">Специализация</label>
+                    </div>
+                     
+                  
+        
+                    </div>
+                    Должностные обязанности 
+                    <textarea id="official"></textarea>
+                    <p>Контакты</p>
+                    <div>
+                    <input   style="margin-bottom: 15px;"
+                            class="contact"
+                            type="phone"
+                            name="phone"
+                            id="phone"
+                            placeholder="+7(000)000-00-00" 
+                            required/>
+                    <input  
+                            class=" contact"
+                            type="email"
+                            name="email"
+                            id="email"
+                            placeholder="some@some.some"
+                            required
+                          />
+                    </div>
+                    Фотография
+                    <label id ="label2" class="feedback__label label2" for="file2">
+                        Нажмите, чтобы выбрать файл    
+                    </label>
+                    <input class="feedfile" id="file2" type="file" onchange="console.log(this.value);">
+                    <script>
+                        const fileInput2 = document.getElementById('file2');
+                        const fileLabel2 = document.getElementById('label2');
+                        fileInput2.addEventListener('change', () => {
+                        const fileName = fileInput2.value.split('\\').pop();
+                        fileLabel2.textContent = fileName;
+                    });
+                    </script>
+            
+                    <button class="pressed-button resumebtn" id="sendresume">Отправить</button>
+            
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="modal3" data-modal="3">
+            <svg class="modal__cross js-modal-close" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
+                <div>
+                    <p style="color: white; font-size: 130%; margin-top: 5vh; ">Должностные обязанности </p>
+                    <textarea id="officialonly" style="margin: 4vh; height: 20vh; color: white; font-size: 130%;"></textarea>
+                    <div id="container">
+                        <div>
+                            <p>Требования</p>
+                            <textarea id="firstcolumn"></textarea>
+                        </div>
+                        <div>
+                            <p>Условия</p>
+                            <textarea id="secondcolumn"></textarea>
+                        </div>
+                        <div>
+                            <p>Примечания</p>
+                            <textarea id="thirdcolumn"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="sendfile" style="margin-block: 2em;">
+                    <button id="sendtextonly" style="margin-inline: 4em;"  class="pressed-button">Отправить</button>
+                    <button type ="reset" style="margin-inline: 4em;" onclick="clearTextarea()" id="cleartextarea" class="pressed-button">Очистить</button>
+                </div>
+                
+        </div>
+        <div id="preloader" style="display: none;">
+            <div class="preloader-wrap">
+              <div class="preloader">
+                 <div class="loading-circle loading-circle-one"></div>
+                 <div class="loading-circle loading-circle-two"></div>
+                 <div class="loading-circle loading-circle-three"></div>
+              </div>
+            </div>
+        </div>
+        
+        <script src="/index.js"></script>
+</body>
+</html>
