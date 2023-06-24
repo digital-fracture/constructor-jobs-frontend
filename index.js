@@ -165,3 +165,9 @@ sendresume.onclick = async function(file_name) {
     secondcolumn.value = majorik['conditions'];
     thirdcolumn.value = majorik['notes'];
   }
+if (position.value !== "") {
+        position.focus();
+    }
+if (working.value !== "") {
+        working.focus();
+    }
