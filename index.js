@@ -6,6 +6,7 @@ const firstcolumn = document.getElementById('firstcolumn');
 const secondcolumn = document.getElementById('secondcolumn');
 const thirdcolumn = document.getElementById('thirdcolumn');
 const container = document.getElementById('container');
+const sendtext = document.getElementById('sendtext')
 document.addEventListener('DOMContentLoaded', function() {
    var modalButtons = document.querySelectorAll('.js-open-modal'),
        overlay      = document.querySelector('.js-overlay-modal'),
@@ -155,6 +156,7 @@ sendresume.onclick = async function(file_name) {
             mod3.style.display = "block";
             doc.style.display = "none";
             container.style.display = "block";
+            sendtext.style.display = "none"
             return response.text();
         })
     );
